@@ -3,7 +3,7 @@ const searchButton = document.querySelector("#search-btn");
 const currentWeatherDiv = document.querySelector(".current-weather");
 const daysForecastDiv = document.querySelector(".days-forecast");
 
-const API_KEY = "PASTE-YOUR-API-KEY"; // Paste your API here
+const API_KEY = "9c0c2542dea2526a323458a1e649491b"; // Paste your API here
 
 // Create weather card HTML based on weather data
 const createWeatherCard = (cityName, weatherItem, index) => {
@@ -85,33 +85,3 @@ const getCityCoordinates = () => {
 }
 
 searchButton.addEventListener("click", () => getCityCoordinates());
-let currentSlide = 0;
-
-function showSlide(index) {
-    const slides = document.querySelector('.slides');
-    const totalSlides = slides.children.length;
-    
-    if (index >= totalSlides) {
-        currentSlide = 0;
-    } else if (index < 0) {
-        currentSlide = totalSlides - 1;
-    } else {
-        currentSlide = index;
-    }
-
-    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-}
-
-function nextSlide() {
-    showSlide(currentSlide + 1);
-}
-
-function prevSlide() {
-    showSlide(currentSlide - 1);
-}
-
-// Initialize slider
-showSlide(currentSlide);
-
-// Optional: Auto slide every 5 seconds
-setInterval(nextSlide, 5000);
